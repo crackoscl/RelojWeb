@@ -70,7 +70,7 @@ function actualizar() {
     const angFecha = (ahora.getDate() - 31) * (360 / 31);
     const getDia = ahora.getDay()
     const angDia = (getDia === 0) ? 6 : diaJS - 1 * (360 / 7);
-    
+
     const angLuna = calcularLuna();
 
     // Dibujar manecillas principales
@@ -81,10 +81,13 @@ function actualizar() {
     dibujarImagenRotada(imagenes.dialDer, 246, 176, angFecha - 90);
     dibujarImagenRotada(imagenes.dialIzq, 104, 176, angDia - 90);
     dibujarImagenRotada(imagenes.luna, 175, 245, angLuna);
-    
+
     requestAnimationFrame(actualizar);
 }
 
 window.onload = () => {
     actualizar();
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+    }
 };
