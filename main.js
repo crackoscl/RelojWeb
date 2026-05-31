@@ -69,7 +69,7 @@ function actualizar() {
 
     const angFecha = (ahora.getDate() - 31) * (360 / 31);
     const getDia = ahora.getDay()
-    const angDia = (getDia === 0) ? 6 : diaJS - 1 * (360 / 7);
+    const angDia = (getDia === 0) ? 6 : getDia - 1 * (360 / 7);
 
     const angLuna = calcularLuna();
 
